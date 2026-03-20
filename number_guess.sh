@@ -6,7 +6,7 @@ PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 echo "Enter your username:"
 read USERNAME
 
-# Check if user exists
+# Check if user exists in this part of the code
 USER_DATA=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 
 if [[ -z $USER_DATA ]]; then
