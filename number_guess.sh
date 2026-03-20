@@ -53,7 +53,7 @@ fi
 # Save game
 INSERT_GAME=$($PSQL "INSERT INTO games(user_id, guesses) VALUES($USER_ID, $NUMBER_OF_GUESSES)")
 
-# Update user stats
+# Update user stats this part:
 TOTAL_GAMES=$($PSQL "SELECT COUNT(*) FROM games WHERE user_id=$USER_ID")
 BEST_GAME=$($PSQL "SELECT MIN(guesses) FROM games WHERE user_id=$USER_ID")
 UPDATE_USER=$($PSQL "UPDATE users SET games_played=$TOTAL_GAMES, best_game=$BEST_GAME WHERE user_id=$USER_ID")
